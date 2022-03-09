@@ -5,10 +5,18 @@ import (
 )
 
 const (
-	layout = "2006-01-02T15:04:05Z"
+	layout   = "2006-01-02T15:04:05Z"
+	dbLayout = "2006-01-02 15:04:05"
 )
 
+func GetNow() time.Time {
+	return time.Now().UTC()
+}
+
 func GetNowString() string {
-	now := time.Now()
-	return now.Format(layout)
+	return GetNow().Format(layout)
+}
+
+func GetNowDBFormat() string {
+	return GetNow().Format(dbLayout)
 }
